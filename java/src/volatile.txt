@@ -1,0 +1,11 @@
+Volatile work according to Before-Happen rule.
+It guarantees your value visibility in multithreading so that your order doesn't change.
+When you write to volatile variables, every write happen before the very action nof writing into volatile will be flush and update to memory.
+When you read volatile variables, any non-volatile variable that the thread can see show be update with value from memory.
+Ex:
+
+
+nonVolatile1 = 1;
+nonVolatile2 = 2;
+volatile1 = ready; -> nonVolatile1, nonVolatile2 will be updated to memory       while(volatile1 != ready); -> will read new value from memory
+                                                                                 println(nonVolatile1);
