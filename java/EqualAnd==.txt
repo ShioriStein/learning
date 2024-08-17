@@ -1,0 +1,13 @@
+equals method:
+This is a method defined in the Object class.
+The .equals() Method is present in the Object class, so we can override our custom .equals() method in the custom class, for objects comparison.
+This method is used for checking the equality of contents between two objects as per the specified business logic.
+
+==
+It is a binary operator in Java.
+It cannot be modified. They always compare the HashCode.
+This operator is used for comparing addresses (or references), i.e checks if both the objects are pointing to the same memory location.
+
+Note:
+In the cases where the equals method is not overridden in a class, then the class uses the default implementation of the equals method that is closest to the parent class.
+Object class is considered as the parent class of all the java classes. The implementation of the equals method in the Object class uses the == operator to compare two objects. This default implementation can be overridden as per the business logic.

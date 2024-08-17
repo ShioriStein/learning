@@ -1,0 +1,15 @@
+1. Why is the main method static in Java?
+The main method is always static because static members are those methods that belong to the classes, not to an individual object.
+So if the main method will not be static then for every object, It is available. And that is not acceptable by JVM.
+JVM calls the main method based on the class name itself. Not by creating the object.
+
+Because there must be only 1 main method in the java program as the execution starts from the main method. So for this reason the main method is static.
+
+2. Can the static methods be overridden?
+No! Declaration of static methods having the same signature can be done in the subclass but run time polymorphism can not take place in such cases.
+Overriding or dynamic polymorphism occurs during the runtime, but the static methods are loaded and looked up at the compile time statically. Hence, these methods cant be overridden.
+
+3. Difference between static methods, static variables, and static classes in java.
+Static Methods and Static variables are those methods and variables that belong to the class of the java program, not to the object of the class. This gets memory where the class is loaded. And these can directly be called with the help of class names.
+For example - We have used mathematical functions in the java program like - max(), min(), sqrt(), pow(), etc. And if we notice that, then we will find that we call it directly with the class name. Like - Math.max(), Math.min(), etc. So that is a static method.  And Similarly static variables we have used like (length) for the array to get the length. So that is the static method.
+Static classes - A class in the java program cannot be static except if it is the inner class. If it is an inner static class, then it exactly works like other static members of the class.

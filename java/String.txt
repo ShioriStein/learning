@@ -1,0 +1,26 @@
+When you declare a string variable like this:
+String str1 = "aha!";
+String str2 = "neh!";
+String str3 = "aha!";
+String str4 = new String("aha!");
+
+IT will behave some different: "aha!" and "neh!" will be created inside string pool which locate inside Heap Memory.
+ str1,str3 will point to "aha!"
+ str2 will point to "neh!"
+ the "aha!" create by new String will be store inside Heap Memory and outside of String Pool, str4 will point to this
+
+String Pool: Designers of Java were aware of the fact that String data type is going to be majorly used by the programmers and developers
+
+Different between String, StringBuffer and StringBuilder:
+Storage area: In string, the String pool serves as the storage area. For StringBuilder and StringBuffer, heap memory is the storage area.
+Mutability: A String is immutable, whereas both the StringBuilder and StringBuffer are mutable.
+Efficiency: It is quite slow to work with a String. However, StringBuilder is the fastest in performing operations. The speed of a StringBuffer is more than a String and less than a StringBuilder. (For example appending a character is fastest in StringBuilder and very slow in String because a new memory is required for the new String with appended character.)
+Thread-safe: In the case of a threaded environment, StringBuilder and StringBuffer are used whereas a String is not used. However, StringBuilder is suitable for an environment with a single thread, and a StringBuffer is suitable for multiple threads.
+Syntax:
+
+Different between StringBuffer and StringBuilder:
+StringBuffer Class	                                                                                                             StringBuilder Class
+StringBuffer is present in Java.	                                                                                             StringBuilder was introduced in Java 5.
+StringBuffer is synchronized. This means that multiple threads cannot call the methods of StringBuffer simultaneously.	         StringBuilder is asynchronized. This means that multiple threads can call the methods of StringBuilder simultaneously.
+Due to synchronization, StringBuffer is called a thread safe class.	                                                             Due to its asynchronous nature, StringBuilder is not a thread safe class.
+Due to synchronization, StringBuffer is lot slower than StringBuilder.	                                                         Since there is no preliminary check for multiple threads, StringBuilder is a lot faster than StringBuffer.

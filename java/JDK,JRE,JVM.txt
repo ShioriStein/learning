@@ -1,0 +1,19 @@
+Definition:
+Java Development Kit - JDK: Software development environment, used for developing java application & applets.
+It include Java Runtime Environment and an interpreter/loader (Java), a compiler (javac), an archiver (jar), a documentation generator (Javadoc), and other tools needed in Java development.
+
+Java Runtime Environment: The Java Runtime Environment provides the minimum requirements for executing a Java application;
+It consists of the Java Virtual Machine (JVM), core classes, and supporting files.
+
+Java Virtual Machine: A specification where the working of Java Virtual Machine is specified. But implementation provider is independent to choose the algorithm. Its implementation has been provided by Sun and other companies.
+                      An implementation is a computer program that meets the requirements of the JVM specification.
+                      Runtime Instance Whenever you write a java command on the command prompt to run the java class, an instance of JVM is created.
+
+is a very important part of both JDK and JRE because it is contained or inbuilt in both.
+Whatever Java program you run using JRE or JDK goes into JVM and JVM is responsible for executing the java program line by line, hence it is also known as an interpreter.
+JVM becomes an instance of JRE at the runtime of a Java program
+
+It is mainly responsible for three activities.
+- Loading
+- Linking
+- Initialization

@@ -1,0 +1,5 @@
+In Java every object is reference.
+Except from primitive variable.
+Java use pointer internally.
+
+ Java is not a pure object-oriented programming language, because it has direct access to primitive data types. And these primitive data types don't directly belong to the Integer classes.

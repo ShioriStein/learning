@@ -1,0 +1,4 @@
+1.What is the difference between the program and the process?
+
+A program can be defined as a line of code written in order to accomplish a particular task. Whereas the process can be defined as the programs which are under execution.
+A program doesn't execute directly by the CPU. First, the resources are allocated to the program and when it is ready for execution then it is a process.

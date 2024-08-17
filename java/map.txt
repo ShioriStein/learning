@@ -1,0 +1,18 @@
+1. What makes a HashSet different from a TreeSet?
+Although both HashSet and TreeSet are not synchronized and ensure that duplicates are not present, there are certain properties that distinguish a HashSet from a TreeSet.
+
+Implementation: For a HashSet, the hash table is utilized for storing the elements in an unordered manner. However, TreeSet makes use of the red-black tree to store the elements in a sorted manner.
+Complexity/ Performance: For adding, retrieving, and deleting elements, the time amortized complexity is O(1) for a HashSet. The time complexity for performing the same operations is a bit higher for TreeSet and is equal to O(log n). Overall, the performance of HashSet is faster in comparison to TreeSet.
+Methods: hashCode() and equals() are the methods utilized by HashSet for making comparisons between the objects. Conversely, compareTo() and compare() methods are utilized by TreeSet to facilitate object comparisons.
+Objects type: Heterogeneous and null objects can be stored with the help of HashSet. In the case of a TreeSet, runtime exception occurs while inserting heterogeneous objects or null objects.
+
+2. What are the differences between HashMap and HashTable in Java?
+HashMap	HashTable
+HashMap is not synchronized thereby making it better for non-threaded applications.
+Allows only one null key but any number of null in the values.
+Supports order of insertion by making use of its subclass LinkedHashMap.
+
+HashTable
+HashTable is synchronized and hence it is suitable for threaded applications.
+This does not allow null in both keys or values.
+Order of insertion is not guaranteed in HashTable.

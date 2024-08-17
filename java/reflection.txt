@@ -1,0 +1,5 @@
+The term reflection is used for describing the inspection capability of a code on other code either of itself or of its system and modify it during runtime.
+
+Consider an example where we have an object of unknown type and we have a method ‘fooBar()’ which we need to call on the object.
+The static typing system of Java doesn't allow this method invocation unless the type of the object is known beforehand.
+This can be achieved using reflection which allows the code to scan the object and identify if it has any method called “fooBar()” and only then call the method if needed.

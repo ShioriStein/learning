@@ -1,0 +1,13 @@
+final variable:
+- Final and its value can't be modified once assigned. It can only be assigned once.
+- If not value has been assigned to it, then it can be assigned only by the constructor of the class.
+
+final method:
+- a method declare as final can not be overridden by its child's class
+- a constructor cannot be marked as final because whenever a class is inherited, the constructors are not inherited.
+
+final class:
+- No classes can be inherited from the class declared as final. But that final class can extend other classes for its usage.
+
+
+ is because abstract classes are incomplete classes that need to be inherited for making their concrete classes. so combine abstract adn final are not allowed

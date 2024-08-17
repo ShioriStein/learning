@@ -1,0 +1,7 @@
+JIT compiler - Just-In-Time compiler use to imrproving performance and speed during run time.
+Compiler is nothing but a translator of source code to machine-excutable code.
+How does it work:
+- First, the Java source code (.java) conversion to byte code (.class) occurs with the help of the javac compiler.
+- Then, the .class files are loaded at run time by JVM and with the help of an interpreter, these are converted to machine understandable code.
+- JIT compiler is a part of JVM. When the JIT compiler is enabled, the JVM analyzes the method calls in the .class files and compiles them to get more efficient and native code. It also ensures that the prioritized method calls are optimized.
+- Once the above step is done, the JVM executes the optimized code directly instead of interpreting the code again. This increases the performance and speed of the execution.
