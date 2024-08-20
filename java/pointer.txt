@@ -1,5 +1,10 @@
+1.
 In Java every object is reference.
 Except from primitive variable.
 Java use pointer internally.
 
  Java is not a pure object-oriented programming language, because it has direct access to primitive data types. And these primitive data types don't directly belong to the Integer classes.
+
+ 2.Java is pass-by-value or pass-by-reference
+ Java always pass-by-value
+ But when you pass the object to method, what you are passing is reference to the address of object.

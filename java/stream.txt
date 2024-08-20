@@ -1,0 +1,2 @@
+Stream:
+- One of the most important of stream is Lazy Evaluation

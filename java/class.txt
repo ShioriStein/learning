@@ -5,3 +5,8 @@ Variable types: Static and final variables can only be declared in the case of i
 Inheritance: Multiple inheritances are facilitated by interfaces, whereas abstract classes do not promote multiple inheritances.
 Data member accessibility: By default, the class data members of interfaces are of the public- type. Conversely, the class members for an abstract class can be protected or private also.
 Implementation: With the help of an abstract class, the implementation of an interface is easily possible. However, the converse is not true;
+
+2.this() and super()
+super() is used to call the parent class constructor. But there is the condition that super() must be the first statement in the block.
+this() also has to be the first statement in the block.
+=> we can say that we cannot use this() and super() keywords in the same block.
