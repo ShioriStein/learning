@@ -1,0 +1,40 @@
+GC is a way for Java to free memory from unused object.
+
+1. way to free object
+ > Set the object references to null once the object creation purpose is served.
+    Ex: String s1 = "smth";
+    s1 = null; -> make s1 eligible for GC
+
+ > Point the reference variable to another object. Doing this, the object which the reference variable was referencing before becomes eligible for GC.
+ Ex: String s1= "smth1";
+     String s2= "smth2";
+     s1=s2:
+
+     "smth1" -> eligible for Gc
+
+ > Island of Isolation Approach: When 2 reference variables pointing to instances of the same class,
+   and these variables refer to only each other and the objects pointed by these 2 variables don't have any other references,
+   then it is said to have formed an “Island of Isolation” and these 2 objects are eligible for GC.
+
+   Ex:
+
+   Class A {
+       A a;
+       main(String[] str) {
+             A a1 = new A();
+             A a2 = new A();
+             a1.a = a2;
+             a2.a = a1;
+
+             a1 = null;
+             a2 = null;
+
+              // We see that a1 and a2 objects refer
+              // to only each other and have no valid
+              // references- these 2 objects for island of isolcation - eligible for GC
+       }
+   }
+
+
+
+

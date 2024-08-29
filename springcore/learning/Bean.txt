@@ -1,0 +1,7 @@
+1. Bean scope:
+There are 5 scopes in bean:
+- Singleton
+- Prototype
+- Request
+- Session
+- Global-session

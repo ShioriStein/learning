@@ -1,0 +1,7 @@
+ACID principles:
+- Atomicity: Entire transaction success or none at all
+    > Abort : If a transaction aborts, changes made to the database are not visible.
+    > Commit : If a transaction commits, changes made are visible.
+- Consistency: integrity constraints must be maintained so that the database is consistent before and after the transaction.
+- Isolation: multiple transactions can occur concurrently without leading to the inconsistency of the database state
+- Durability: the updates and modifications to the database are stored in and written to disk and they persist even if a system failure occurs

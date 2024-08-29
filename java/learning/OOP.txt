@@ -1,0 +1,17 @@
+4 principles of OOP:
+1. Encapsulation
+    - Technique of making state of object private.
+    - Class can change the degree of access through the use of public methods
+2. Inheritance
+    - Allow you to build a class upon an exist class.
+    - Child class can inherit attributes and methods from one class to another.
+    - Important to note: Inheritance is not about hierarchy but about re-using code.
+3. Polymorphimsm
+    - A method can be executed through different way.
+    - Overload and Overriding
+    - Overloading: Same method name but different parameter.
+    - Overriding: Override a method that declare in parent and child class. IF the child doesn't declare then use the parent's method.
+
+4. Abstraction
+    - Hide the implementation and only show the public method.
+    - Abstract class and abstract

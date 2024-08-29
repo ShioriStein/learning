@@ -1,0 +1,43 @@
+Implementing a thread using the method of Runnable interface is more preferred and advantageous as Java does not have support for multiple inheritances of classes.
+start() method is used for creating a separate call stack for the thread execution. Once the call stack is created, JVM calls the run() method for executing the thread in that call stack.
+
+1. Can we make the main thread a daemon thread:
+In java multithreading, the main() threads are always non-daemon threads. And there is no way we can change the nature of the non-daemon thread to the daemon thread.
+
+2. Thread lifecycle
+- New – When the instance of the thread is created and the start() method has not been invoked, the thread is considered to be alive and hence in the NEW state.
+- Runnable – Once the start() method is invoked, before the run() method is called by JVM, the thread is said to be in RUNNABLE (ready to run) state. This state can also be entered from the Waiting or Sleeping state of the thread.
+- Running – When the run() method has been invoked and the thread starts its execution, the thread is said to be in a RUNNING state.
+- Non-Runnable (Blocked/Waiting) – When the thread is not able to run despite the fact of its aliveness, the thread is said to be in a NON-RUNNABLE state. Ideally, after some time of its aliveness, the thread should go to a runnable state.
+  > A thread is said to be in a Blocked state if it wants to enter synchronized code but it is unable to as another thread is operating in that synchronized block on the same object. The first thread has to wait until the other thread exits the synchronized block.
+  > A thread is said to be in a Waiting state if it is waiting for the signal to execute from another thread, i.e it waits for work until the signal is received.
+- Terminated – Once the run() method execution is completed, the thread is said to enter the TERMINATED step and is considered to not be alive.
+
+3. Assume a thread has a lock on it, calling the sleep() method on that thread will release the lock?
+A thread that has a lock won't be released even after it calls sleep(). Despite the thread sleeping for a specified period of time, the lock will not be released.
+
+5.A few concepts:
+- Deadlock: 2 thread wait for each other.
+    There are 4 reasons lead to deadlock:
+    > Mutual Exclusion (khóa độc quyền): Resource can only be used by one thread at a time (When it acquire lock and doesn't release it)
+    > Hold and wait (Giữ và chờ): One thread hold one or many resource and wait for another resource that is holding by other thread.
+    > No preemption (Không có lệnh hủy bỏ): Resource can't be used by another thread unless the current lock thread release it.
+    > Circular Wait (Chờ nhau): Threads are waiting for each other like a circle (A > B > C > A)
+- Race Conditions: 2 Threads access the same resource lead to conflict in data. (When data is not synchronize between threads)
+- Data race: Cùng sử dụng resource nhưng không được đồng bộ hóa dẫn đến kết quả sai, nó xảy ra ở phạm vi hệ thống.
+- Thread Safety: 2 Thread can use the share resource witout conflict in data (Race Condition)
+- Starvation: State of Thread that got deny of excute, priority other thread.
+- Concurrency: is when two or more tasks can start, run, and complete in overlapping time periods. It doesn't necessarily mean they'll ever both be running at the same instant.
+                For example, multitasking on a single-core machine.
+- Parallelism is when tasks literally run at the same time, e.g., on a multicore processor.
+
+6. ThreadPool
+- được dùng để giới hạn số lượng Thread được tạo (chạy) ra bên trong ứng dụng trong cùng một thời điểm để tối ưu vấn đề cấp phát bộ nhớ và hiện suất.
+- type of threadpool:
+    > Cached thread pool: giữ một số luồng còn sống (alive) và tạo ra các luồng mới nếu cần (Không giới hạn số luồng tạo ra).
+    > Fixed thread pool: giới hạn số luồng được tạo ra để thực thi các task.
+    > Single-threaded pool: chỉ giữ một Thread trong pool.
+    > Executor: đối tượng chịu trách nhiệm quản lý các luồng và thực hiện các tác vụ.
+    > ExecutorService: là lớp con Executor cho phép theo dõi tiến trình của các tác vụ trả về giá trị thông qua đối tượng Future, và quản lý việc kết thúc các luồng.
+    > ScheduledExecutorService: là lớp con của ExecutorService có thể lên lịch cho các tác vụ để thực thi sau một khoảng thời gian nhất định, hoặc để thực hiện định kỳ.
+
