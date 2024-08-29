@@ -1,7 +1,35 @@
 1. Bean scope:
-There are 5 scopes in bean:
-- Singleton
-- Prototype
-- Request
-- Session
-- Global-session
+There are 6 scopes in bean:
+- Singleton: Default scope. Only one instance of the bean is created for each Spring IoC container. All requests for that bean name will return the same object.
+- Prototype:  A new instance of the bean is created every time it is requested from the Spring container.
+- Request (Web-aware scope): single instance of the bean is created and available for an HTTP request. It is created and destroyed with the request.
+- Session (Web-aware scope): A single instance of the bean is created and available for an HTTP session. It is created once per session and is shared across all requests in that session.
+- Global-session (Web-aware scope): A single instance of the bean is created and available for the lifecycle of a ServletContext. It is shared across all requests and sessions within the web application.
+- WebSocket (Web-aware scope): A single instance of the bean is created and available for the lifecycle of a WebSocket connection.
+
+Các scope request, session, application, websocket chỉ hỗ trợ cho ứng dụng web. Nếu sử dụng cho các ứng dụng thông thường sẽ bị ngoại lệ IllegalStateException.
+
+
+2. Inversion of Control (IoC):
+- Inversion of Control is a design principle where the control of creating and managing objects is transferred from the application code to a container or framework.
+- In traditional programming, the developer creates and manages objects directly, which can lead to tight coupling between components.
+    IoC inverts this process by allowing the container to take responsibility for these tasks.
+
+3: 2 type of IoC Container:
+- BeanFactory: simple container to provide basic support for DI (Dependency Injection),
+    only support singleton & prototype
+- ApplicationContext: build on BeanFactory and provide more functions (internationalization message, application events).
+   Support all Bean scope.
+
+>> The different is that BeanFactory only create bean when we called method "getBean()" but ApplicationContext will create all bean when start the app.
+
+4: Spring Bean Lifecycle
+- Bean Definition
+- Bean Instantiation
+- Dependency Injection
+- Aware Interfaces (Optional)
+- BeanPostProcessor (Before Initialization)
+- Custom Initialization Methods
+- BeanPostProcessor (After Initialization)
+- Bean is Ready to Use
+- Bean Destruction

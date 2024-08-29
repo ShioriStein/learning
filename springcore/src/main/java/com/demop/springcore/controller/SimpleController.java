@@ -1,5 +1,6 @@
 package com.demop.springcore.controller;
 
+import com.demop.springcore.beans.ExampleBean;
 import com.demop.springcore.service.SimpleService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -17,8 +18,11 @@ public class SimpleController {
     final
     SimpleService simpleService;
 
-    public SimpleController(SimpleService simpleService) {
-        this.simpleService = simpleService;
+    final ExampleBean exampleBean;
+
+    public SimpleController(SimpleService simpleService, ExampleBean exampleBean) {
+        this.simpleService = simpleService; //construction injection
+        this.exampleBean = exampleBean;
     }
 
     @GetMapping("/")
