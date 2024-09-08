@@ -11,7 +11,105 @@
     - Overload and Overriding
     - Overloading: Same method name but different parameter.
     - Overriding: Override a method that declare in parent and child class. IF the child doesn't declare then use the parent's method.
+    - It doesn't Polymorphi with member variables, ví dụ: Class Parent có a = 1, Class Child kế thừa và có a = 2. Nêu sử dụng upcasting Paren p = new Child() và gọi p.a thì kết quả sẽ ra là 1
+    - Có thể nạp chồng phương thức main() không? Được, nhưng JVM đã hardcode chỉ chạy phương thức main(String[] args)
+    - Quy tắc kế thừa:
+           > Phương thức phải có tên giống với lớp cha.
+           > Phương thức phải có tham số giống với lớp cha.
+           > Lớp con và lớp cha có mối quan hệ kế thừa.
+     -Overload thực hiện ở compile, Overriding ở runtime
 
 4. Abstraction
     - Hide the implementation and only show the public method.
     - Abstract class and abstract
+
+1. Lập trình hướng đối tượng (OOP)
+- Là phương pháp lập trình xoay quanh đối tượng.
+- Đối tượng là instance của class, chúa dữ liệu (thuộc tính và truòng) và phương thức(hàm hoạc behavior).
+- Chúng ta quan tâm đến state và behavior của obj thì sử dụng OOP
+
+2.Đối tượng (object)
+- Đối tượng là một thực thể có trạng thái và hành vi. Nó có thể mang tính chất vật lý hoặc logic.
+
+3. Lớp (Class)
+Chúng ta có thể xem lớp như là một khuôn mẫu (template) của đối  (object). Trong đó bao gồm dữ liệu của đối tượng (fields hay property) và các phương thức (method) tác động lên các thành phần dữ liệu đó gọi là phương thúc của lớp.
+
+3.1 Cú pháp:
+
+<Phạm vi truy cập> class <Tên lớp> {
+
+    // Khai báo thuộc tính (field) hay biến
+
+    <Phạm vi truy cập> <kiểu dữ liệu> <field_1>;
+
+    <Phạm vi truy cập> <kiểu dữ liệu> <field_2>;
+
+    // Hàm khởi tạo không có tham số
+
+    <Phạm vi truy cập> <Tên lớp>(){
+        // Khởi tạo dữ liệu
+    }
+
+    // Hàm khởi tạo có tham số
+
+    <Phạm vi truy cập> <Tên lớp>(<Kiểu dữ liệu> <tên biến>[, <Kiểu dữ liệu> <tên biến>]){
+        // Khởi tạo dữ liệu
+    }
+
+    // Phương thức xử lý (method)
+
+    <Kiểu trả về> method_1() {
+        // Logic xử lý
+    }
+
+    <Phạm vi truy cập> <Kiểu trả về> method_2(<Kiểu dữ liệu> <tên biến>) {
+        // Logic xử lý
+    }
+
+    <Phạm vi truy cập> <Từ khoá tuỳ chọn> <Kiểu trả về> method_3(<Kiểu dữ liệu> <tên biến>) {
+        // Logic xử lý
+    }
+}
+
+Trong đó:
+    class: là từ khóa để khai báo lớp trong Java.
+    Tên lớp: là tên chúng ta đặt cho lớp (quy tắc đặt tên: viết hoa mỗi chữ cái đầu).
+    field_1, field_2: các thuộc tính, các biến, hay các thành phần dữ liệu của lớp (quy tắc đặt tên: chữ cái đầu tiên viết thường, các chữ cái đầu tiên tiếp theo viết hoa).
+    Hàm khởi tạo (constructor): hàm dùng để khởi tạo đối tượng lớp.
+    method_1, method_2, method_3: là các phương thức thể hiện các thao tác xử lý, tác động lên các thành phần dữ liệu của lớp.
+    Kiểu trả về có thể là primitive type, Wrapper class, array, enum, Collection, Object, …
+    Phạm vi truy cập: private, Default (Package-Private) Access, protected, public.
+    Từ khoá tuỳ chọn bao gồm: static, abstract, final, synchronized, …
+
+4. Sư khác nhau giữa lớp và đối tượng trong java
+Đối tượng	                                                        Lớp
+Đối tượng là thể hiện của 1 lớp.	                                Lớp là một khuân mẫu hay thiết kế để tạo ra các đối tượng.
+Đối tượng là 1 thực thể trong thế giới thực                         Lớp là một nhóm các đối tượng tương tự nhau. Ví dụ: Lớp động vật (Animal).
+như Con mèo (Cat), con chó (Dog), …
+Đối tượng là 1 thực thể vật lý	                                    Lớp là 1 thực thể logic
+Đối tượng được tạo ra chủ yếu từ từ khóa new.                       Lớp được khai báo bằng việc sử dụng từ khóa class.
+Ví dụ: Student s1=new Student();                                    Ví dụ: class Student{}
+Đối tượng có thể được tạo nhiều lần.	                            Lớp được khai báo 1 lần duy nhất.
+Đối tượng được cấp bộ nhớ khi nó được tạo ra.	                    Lớp không được cấp bộ nhớ khi nó được tạo ra.
+Có rất nhiều cách để tạo ra đối tượng trong java                    Chỉ có một cách để định nghĩa lớp trong java sử dụng từ khoá class.
+như từ khóa new, phương thức newInstance(),
+phương thức clone(), phương thức factory và deserialization.
+
+Constructor:
+- Java Constructor được gọi tại thời điểm tạo đối tượng.
+- Constructor trong java là một dạng đặc biệt của phương thức được sử dụng để khởi tạo các đối tượng.
+- Constructor được sử dụng để khởi tạo trạng thái của một đối tượng.
+- Nếu không có chỉ định, default Java sẽ tự tạo cho class.
+- Phải cùng tên với class.
+
+4 kiểu Java  modifier:
+- private
+- default
+- protected
+- public
+
+Access Modifier	       Truy cập bên trong class?	        Truy cập bên trong package?	        Truy cập bên ngoài package bởi class con?	        Truy cập bên ngoài class và không thuộc class con?
+private	                            Y
+default	                            Y	                                Y
+protected	                        Y	                                Y	                                    Y
+public	                            Y	                                Y	                                    Y	                                                        Y

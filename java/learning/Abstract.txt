@@ -1,0 +1,17 @@
+Abstraction class:
+
+Một lớp được khai báo với từ khóa abstract là lớp trừu tượng (abstract class).
+
+Lớp trừu tượng có thể có các phương thức abstract hoặc non-abtract.
+
+Lớp trừu tượng có thể khai báo 0, 1 hoặc nhiều method trừu tượng bên trong.
+
+Không thể khởi tạo 1 đối tượng trực tiếp từ một class trừu tượng.
+
+Một lớp kế thừa từ lớp trừu tượng (subclass – lớp con) không cần phải implement non-abstract methods, nhưng những method nào có abstract thì bắt buộc phải override. Trừ khi subclass cũng là abstract.
+
+
+Abstraction method:
+Một phương thưc được khai báo là abstract và không có trình triển khai thì đó là phương thức trừu tượng (abstraction method).
+Nếu bạn muốn một lớp chứa một phương thức cụ thể nhưng bạn muốn triển khai thực sự phương thức đó để được quyết định bởi các lớp con, thì bạn có thể khai báo phương thức đó trong lớp cha ở dạng abstract.
+Từ khóa "abstract" được sử dụng để khai báo một phương thức theo dang abstract, phương thức abstract sẽ không có định nghĩa.

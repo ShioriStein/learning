@@ -1,0 +1,16 @@
+this:
+- Từ khóa this trong java là một biến tham chiếu được sử dụng để tham chiếu tới đối tượng của lớp hiện tại
+- Có 6 cách để sử dụng:
+ > Tham chiếu tới instance hiện tại
+ > Gọi constructor của lớp hiện tại
+   >> this phải nằm ở dòng đầu tiên trong hàm constructor.
+ > Trả về instance của lớp hiện tại
+ > Được truyền như tham số trong phương thức
+ > Được truyền như tham số trong constructor
+
+super:
+- Là môt jbienes tham chiếu được sử dụng để tham chiếu trực tiếp đến đối tượng của lớp cha gần nhất.
+- Có 3 cách sử dụng:
+ > Gọi trực tiếp hàm constructor của lớp cha gần nhất.
+ > Gọi trực tiếp thuọc tính (field) của lớp cha gần nhất
+ > Gọi trực tiếp phương thức của lớp cha gần nhất.

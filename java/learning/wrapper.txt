@@ -1,0 +1,23 @@
+Lớp Wrapper trong java:
+Java cung cấp cơ chế để chuyển đổi giữa kiểu dữ liệu primitive và object (đối tượng)
+
+Kiểu nguyên thủy	Kiểu Wrapper
+boolean	        Boolean
+char	        Character
+byte	        Byte
+short	        Short
+int	            Integer
+long	        Long
+float	        Float
+double	        Double
+
+1.Tại sao cân wrapper:
+- Có thể sử dụng trong Collection.
+- Cần giá trị null
+- Giá trị mặc định nếu không set là null thay vì là 0 như kiểu int.
+
+2. hạn chế:
+- Kiểu primitive có thể nhanh hơn kiểu object
+- Phép so sánh == có thể sai:
+ > == so sánh tham chiếu (reference)
+ > .equal() so sánh giá

@@ -1,4 +1,4 @@
-package core;
+package core.OOP;
 
 class Employee {
     String name;
@@ -24,11 +24,20 @@ class Employee {
             return age * base;
         }
     }
+
+    public void sum(int base, long time) {
+        System.out.println(name + " " + age + " " + base + " " + time);
+    }
+
+    public void sum(long base, int time) {
+        System.out.println(name + " " + age + " " + base + " " + time);
+    }
 }
 
 public class OverLoading {
     public static void main(String[] args) {
         Employee emp1 = new Employee("employee1");
         Employee emp2 = new Employee("employee2", 20);
+//        emp2.sum(20, 20);
     }
 }

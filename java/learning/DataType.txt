@@ -1,0 +1,25 @@
+Primitive:
+Có 8 loại dữ liệu nguyên thủy trong java:
+- Kiểu sô nguyên: byte, short, int, long
+- Kiểu số thực float, double
+- Kiểu ký tự: char
+- Kiểu logic: Trả về giá trị true hoặc false
+
+
+Kiểu dữ liệu	Số bit	Giá trị nhỏ nhất	        Giá trị lớn nhất
+byte	        8	    -128 (-2^7)	                127 (2^7-1)
+short	        16	    -32,768 (-2^15)	            32,767 (2^15 -1)
+int	32	                – 2,147,483,648 (-2^31)	    2,147,483,647 (2^31 -1)
+long	64	-9,223,372,036,854,775,808
+(-2^63)	9,223,372,036,854,775,807
+(2^63 -1)
+float	32	-3.4028235 x 10^38	3.4028235 x 10^38
+double	64	-1.7976931348623157 x 10^308	1.7976931348623157 x 10^308
+boolean	false	true
+char	16	‘\u0000’ (0)	‘\uffff’ (65,535).
+
+
+Object type:
+- Array: Một mảng của dữ liệu cùng kiểu
+- class: Dữ liệu kiểu lớp đối tượng do người dùng định nghĩa. Chứa tập các thuộc tính và phương thức
+- interface: Dữ liệu kiểu lớp giao tiếp do người dùng định nghĩa. Chứa các phương thức của lớp giao tiếp

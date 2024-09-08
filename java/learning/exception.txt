@@ -1,0 +1,25 @@
+1. Có 2 loại exception:
+    > Checked: Exception xảy ra ở compile time (IOException)
+    > Unchecked: Exception xảy ra ở runtime. (NullPointerException)
+
+2.Sự khác biệt giữa throw và throws
+throw
+    Dùng để ném ra ngoại lệ rõ ràng
+    Ngọai lệ check không được truyền ra nếu chỉ sử dụng từ khóa throw
+    Sau throw là 1 "instance"
+    throw được sử dụng trong phương thức có thể quăng ra exception ở bất kì dòn nào trong phương thức (sau đó sử dụng try-catch hoăc để cho thằng khác handle)
+    KHông thể quăng ra nhiều exception được
+throws
+    Để khai báo một ngoại lệ
+    Ngoại lệ checked được truyền ra ngay cả khi chỉ sử dụng từ khóa throws
+    Sau throws là một hoặc nhiều "class"
+    Throws được khai bao ngay sau dấu đóng ngoặc của method. Khi 1 method có throw bên trong mà không bắt lại (try-catch) thì phải ném đi (throws) cho bên khác sử lý
+    Có thể khai báo nhiều exceptions
+    vd: public void method() throws IOException, SQLException {}.
+
+    3.Cách JVM xử lý exception
+    - KHi xảy ra lỗi ở method, method đó sẽ tạo ra 1 object và đưa nó vào Runtime System. Obj đó được gọi là Exception Object, nó chứa tất cả thông tin về
+    lỗi và trạng thấy của chương trình khi xảy ra lỗi.
+
+    Sau đó runtime System sẽ tìm cách xử lỹ ngoại lệ phù hợp được sử dụng tại method dó. Nếu method đó không có thì sẽ tìm ở method trên. Nếu không có method nào phù hợp thì thread đang thực hiện method đó sẽ bị ngát.
+    Nếu thread đó là main thì chết chương trình.

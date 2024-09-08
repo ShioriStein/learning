@@ -24,3 +24,7 @@ StringBuffer is present in Java.	                                               
 StringBuffer is synchronized. This means that multiple threads cannot call the methods of StringBuffer simultaneously.	         StringBuilder is asynchronized. This means that multiple threads can call the methods of StringBuilder simultaneously.
 Due to synchronization, StringBuffer is called a thread safe class.	                                                             Due to its asynchronous nature, StringBuilder is not a thread safe class.
 Due to synchronization, StringBuffer is lot slower than StringBuilder.	                                                         Since there is no preliminary check for multiple threads, StringBuilder is a lot faster than StringBuffer.
+
+String có thê là primitive là object.
+
+Cần lưu ý rằng nếu có một câu lệnh chứa nhiều toán tử ‘+’ để nối các chuỗi thì JVM sẽ tự động sử dụng StringBuffer / StringBuilder.

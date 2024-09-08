@@ -1,0 +1,7 @@
+1.Nếu implement 2 interface với cùng default method signature thì class implement 2 interface đó phải override cái method.
+2.Interface có các variable/field/trường thì nó sẽ tự động bắt bược là public static final, không thể thay đổi.
+3.Các hàm đều tự động là abstract.
+4. Một lớp không phải interface: Lớp chứa các state và behavior của đối tượng, interface chỉ chứa behavior mà lớp sẽ triển khai.
+5. Trừ khi lớp triển khai của interface là abstract class, còn lại tất cả phương thức của interface cần được định nghĩa trong class.
+6. Java 8 hỗ trợ default, static method
+   Java 9 hỗ trợ private methods.

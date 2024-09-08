@@ -10,3 +10,34 @@ Implementation: With the help of an abstract class, the implementation of an int
 super() is used to call the parent class constructor. But there is the condition that super() must be the first statement in the block.
 this() also has to be the first statement in the block.
 => we can say that we cannot use this() and super() keywords in the same block.
+
+3. Compare between Abstract class and Interface
+Abstract class:
+Abstraction < 100%
+It can contain abstract and non-abstract method
+Doesn't support multi inheritance
+It can contain final, non-final, static and non-static variables
+It can have static, main methods and constructor.
+"abstract" keyword is used to declare abstraction.
+Lớp trừu tượng có thể cung cấp trình triển khai của Interface
+Using abstract class when we can only complete a few standard method/function of the system, the remains the extends class must complete it. These methods can be used normal, as common function.
+
+Interface:
+Abstraction 100% (Java < 8)
+Java < 8: can only contain abstract method; Java 8 you can have default and static methods.
+Support multi inheritance
+It can only contain static final variables.
+It cannot have static,main method or constructor.
+"interface" keyword is used to declare interface.
+Interface không cung cấp trình triển khai cụ thể của lớp abstract
+Using interface when you want to create a standard frame contains all method/function, that the module / project must have. Modules must implement all the method/function declare there.
+
+///// INNER CLASS /////
+1.Inner class là gì
+- Là các lớp được khai báo lồng vô trong một lớp
+- Inner class có thể truy cập tát cả thuộc tính và phương thước bao gồm cả private của lớp ngoài
+- Inner class giúp nhóm các class lại giúp dễ đọc và quản lí hơn.
+
+2. Các kiểu của lớp lồng nhau:
+- lồng nhau non-static:
+- lồng nhau static:

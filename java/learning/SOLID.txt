@@ -1,9 +1,21 @@
 1. Single Responsibility
+Một class chỉ nên giữ 1 trách nhiệm duy nhất, chỉ có thể sửa đổi class với 1 lý do duy nhất.
 
 2. Open-Closed principle (OCP)
+Có thể thoải mái mở rộng 1 class, nhưng không được sửa đổi bên trong class đó.
 
 3. Liskov substitution principle (LSP)
+Trong một chương trình, các object của class con có thể thay thế class cha mà không làm thay đổi tính đúng đắn của chương trình.
+
+Một số dấu hiệu điển hình có thể chỉ ra rằng LSP đã bị vi phạm:
+    Các lớp dẫn xuất có các phương thức ghi đè phương thức của lớp cha nhưng với chức năng hoàn toàn khác.
+    Các lớp dẫn xuất có phương thức ghi đè phương thức của lớp cha là một phương thức rỗng.
+    Các phương thức bắt buộc kế thừa từ lớp cha ở lớp dẫn xuất nhưng không được sử dụng.
+    Phát sinh ngoại lệ trong phương thức của lớp dẫn xuất.
 
 4. Interface segregation principle
+Thay vì dùng 1 interface lớn, ta nên tách thành nhiều interface nhỏ với nhiều mục đích cụ thể.
 
 5. Dependency Inversion Principle
+Các module cấp cao không nên phụ thuộc vào các modules cấp thấp. Cả 2 nên phụ thuộc vào abstraction.
+Interface (abstraction) không nên phụ thuộc vào chi tiết, mà ngược lại. ( Các class giao tiếp với nhau thông qua interface, không phải thông qua implementation.)

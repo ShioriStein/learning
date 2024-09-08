@@ -1,0 +1,148 @@
+1. Collection Framework chia làm 2 hệ thống:
+- java.util.Collection chứa danh sách các đối tượng.
+- java.util.Collection chứa các cập key/value
+
+Collection bao gồm 3 nhánh chính (List, Queue, Set):
+    - List
+        > Dan sách (List) là một collection có thứ tự
+        > Có thể chứa các phần từ trùng
+        > Có thể truy cập ngẫu nhiên
+    - Queue
+        > Hàng đợi tuần tự nhưng chỉ có thê chạm vào thằng đứng đầu
+        > FIFO
+        > Cho phép trùng lặp
+        > Không null
+    - Deque (Double Ended Queue)
+        > Chứa nhiều phần từ trước khi xử lý.
+        > Cung cấp các thaop tác cơ bản của Collection và bổ sung như chèn, lấy ra và kiểm tra.
+        > Sử dụng như FIFO và LIFO.
+        > Các phần tử có thể giống nhau hoặc không phụ thuộc vào nhánh nào trong 3 nhánh trên.
+        > Có thể chén vào, lấy ra và lấy ra ở cả 2 đầu.
+    - Set
+        > Tập hợp không tuần tự, không cho phép trùng.
+        > Có thể thêm hoặc xóa nếu nó có tồn tại.
+
+Nhóm map lưu trữ các cập key/value
+    - hashMap
+    - LinkedHashMap
+    - TreeMap
+
+2 interface của Set và Map đế sort:
+SortedSet: là một interface con của Set, nó có thể chứa các phần tử có thứ tự tăng dần.
+SortedMap: là một Map chứa các phần tử được sắp xếp theo thứ tự tăng dần của key của chúng.
+ Các SortedMap được sử dụng cho các collection theo thứ tự tự nhiên của cặp key/value, chẳng hạn như từ điển và danh bạ điện thoại.
+
+
+
+
+//////////          ArrayList         //////////////
+Các điểm cần ghi nhớ:
+- Có thể chứa phần từ trùng
+- Duy trì thứ tự
+- Không đồng bộ (non sync)
+- Cho phép truy cập ngẫu nhiên
+- Thao tác thêm xóa dịch chuyẻn chậm.
+- Mặc định kích cỡ ban đầu là 10. Nếu số lượng phần tử vượt sức chứa hiện tại thì nó sẽ tăng lên thêm 50% so với kích thước hiện có
+- Kich thước chỉ tăng tự động chứ không giảm tự động. Khi xóa 1 phần từ các phần tử sau nó sẽ dịch lên 1 nhưng tổng kich thước không đổi.
+- Mảng index chứa reference tới các phần từ là mảng fixed.
+
+Khác biệt giữa Array và ArrayList
+Array:
+- Có kích thước cố định.
+- Có thể lưu dữ liệu primitive và Object.
+- Sử dụng for, for-each để duyệt qua cac phần tử của mảng.
+- Kiểm tra kích thước bằng .length()
+- Không hỗ trợ Generic
+- them vào bằng lệnh gán
+
+ArrayList:
+- Có thể thay đổi kích thước. Kích thước của nó tự tăng (50% kích thước hiện có) nếu thêm một phần tử vượt quá sức chứa (compacity) hiện có của nó.
+- Chỉ có thể lưu được dữ liệu Object. Autoboxing các dữ liệu nguyên thủy
+- Tương tự array và có thể sử dụng Iterator hoặc ListIterator.
+- kiểm tra kích thước bằng .size()
+- Hỗ trợ Gểnic.
+- Thêm bằng phương thức .add().
+
+
+//////////          LinkedList         //////////////
+Các điểm cần ghi nhớ:
+- Có thể chứa trùng
+- Duy trì thứ tự
+- Thao tác thêm/xóa nhanh
+- Có thể sử dụng như list,stack hoặc queue.
+- Các phần tử trong LinkedList có thể nằm cách ly nhau (không liên tục) trong bộ nhớ. Nó là 1 liên kết 2 chiều
+- Không đồng bộ
+
+Khác biệt giữa ArrayList và LinkedList
+ArrayList:
+- Sử dụng mảng động
+- AL dựa trên chỉ mục (index), trong đó mỗi phần tử liên kết với 1 chỉ mục.
+- Chỉ hoạt động như 1 list vì nó implement mỗi giao tiếp List
+- Lưu ít bộ nhớ hơn vì nó chỉ lưu mỗi index và dữ liệu của nó
+LinkedList:
+- Sử dụng danh sách liên kết (Doubly Linked Líst) để lưu.
+- Phần tử gồm 3 giá trị: prev, data, next.
+- Có thể hoạt động như 1 ArrayList, stack, queue, singly linkedlist và Doubly Linked List vì nó implement giao tiếp List và Deque
+- Cần nhiều bộ nhớ hơn vì nó cần lưu tham chiếu tới phần tử trước, sau và dữ liệu cuả nó.
+
+//////////          HashSet          ////////////
+- Hashset sử dụng hash table để lưu giữ liệu.
+- Một hash table sử dụng hasing value của 1 key để quyết định 1 giá trị duy nhất được gọi là hashcode của nó.
+- Hash code sau đó được sử dụng như là index, tại đó dữ liệu mà liên kết với key được lưu giữ. Phép biến đổi của key vào trong hash code của nó được thực hiện tự động.
+Điểm quan trọng:
+- HashSet chỉ chứa các phần tử duy nhât, không chấp nhận 2 phần tử trùng nhau.
+- HashSet lưu trữ các phần tử bằng cách sử dụng một cơ chế được gọi là hashing.
+- HashSet không đảm bảo thứ tự được thêm vào.
+- HashSet cho phép chứa phần tử NULL.
+- HashSet sử dụng HashMap bên trong nó để chứa dữ liệu
+
+
+//////////          LinkedHashSet          ////////////
+- Chỉ chứa các phần tử duy nhất, không chấp nhận 2 ptu trùng nhau.
+- Đảm bảo thứ tự thêm vào.
+- Sử dụng LinkedHashMap nội bộ để lưu trữ và xử lý các phần từ của nó.
+- Cho phép chứa null
+- LinkedHashSet không có đồng bộ, để đồng bộ sử dụng phương thức Collections.synchronizedSet().
+
+
+//////////          List         //////////////
+- List interface trong java kế thừa Collection và cung cấp các phương thức để thao tác với các phần tử.
+- Interator là một interface, nó cung cấp các phương thức để duyệt qua các phần từ.
+- ListIterator là interface kế thừa từ lop Iterator, nó cung cấp phương thức để duyệt phần tử theo 2 chiều.
+- Khác biệt giữa Iterator vaf ListIterator:
+List
+- Duyệt được qua Set và List
+- Một chiều
+- Không thể thêm hay thay thế phần từ
+ListIterator
+- Chỉ duyệt qua List
+- 2 hướng
+- Chứa thêm 1 số tính năng mới: thêm mới, thay thế phần từ; lấy chỉ mục (index) cho phần tử trước hoặc sau nó.
+
+//////////////// MAP ////////////////////////
+- Sức chứa mặc định khi tạo map là 16. Tự động tăng gấp đôi mỗi khi thêm phần tử vượt quá kích thước của nó.
+
+/////////////// HASHMAP /////////////////////
+-Lưu trữ dữ liệu dưới dạng Key - Value
+- Chỉ chứa unique key
+- Chỉ 1 key có thể là null và có thể chứa nhiều giá trị null
+- Không duy trì thứ tự.
+
+/////////////// LINKED HASHMAP /////////////////////
+- Lưu trữ dữ liệu dưới dạng Key - Value
+- Chỉ chứa unique key
+- Chỉ 1 key có thể là null và có thể chứa nhiều giá trị null
+- duy trì thứ tự.
+
+/////////////// TREE MAP /////////////////////
+- Lưu trữ dữ liệu dưới dạng Key - Value
+- Chỉ chứa unique key
+- Chỉ 1 key có thể là null và có thể chứa nhiều giá trị null
+- duy trì thứ tự.
+
+Hashmap hoạt động thế nào:
+- Mỗi cặp key - value được lưu trong đối tượng của lớp Entry<K,V>. Bên trong lớp này có 4 trường: key, value, next và hash
+
+LinkedHAshMap hoạt động thế nào:
+- Mỗi cặp key - value được lưu trong đối tượng của lớp Entry<K,V>. Bên trong lớp này có 4 trường: key, value, next, hash, before (node trước nó theo thứ tự), after (node sau nó theo thứ tự)
+
