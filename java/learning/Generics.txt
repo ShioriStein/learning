@@ -1,0 +1,16 @@
+Generic là một tính năng của Java giúp cho lập trình viên có thể chỉ định rõ kiểu dữ liệu mà họ muốn làm việc với một class, một interface hay một phương thức nào đó.
+
+Ưu điểm:
+- Kiểu dữ liệu an toàn: chỉ đc 1 kiểu dữ liệu, không cho phép lưu trữ kiểu dữ liệu khác
+- Kiểm tra dữ liệu chặt chẽ ở run-time
+- Hạn chế ép kiểu thủ công
+- Giúp viết thuật toán và sử dụng lại code dễ hơn.
+
+Hạn chế:
+- KHông thể gọi Generics bẳng kiểu dữ liệu nguyên thủy
+- KHông thể tạo instances của kiểu dữ liệu Generics
+- Không thể sử dụng static
+- KHông thể ép kiểu hoặc sử dụng instance of
+- KHông thể tạo mảng với paramertiztezd type
+- Không thể tạo catch, throw đối tượng của paramaterized types. Vì trong thời điểm chạy Generic không tồn tại
+- Không thể overload các hàm giống nhau

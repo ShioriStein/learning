@@ -8,7 +8,7 @@ class Employee {
 
     public static Employee getInstance() {
         if(instance == null) {
-            synchronized (Employee.class) {
+            synchronized (Employee.class) { //synchronized block
                 if(instance == null) {
                     instance = new Employee();
                 }

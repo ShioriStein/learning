@@ -41,3 +41,10 @@ A thread that has a lock won't be released even after it calls sleep(). Despite 
     > ExecutorService: là lớp con Executor cho phép theo dõi tiến trình của các tác vụ trả về giá trị thông qua đối tượng Future, và quản lý việc kết thúc các luồng.
     > ScheduledExecutorService: là lớp con của ExecutorService có thể lên lịch cho các tác vụ để thực thi sau một khoảng thời gian nhất định, hoặc để thực hiện định kỳ.
 
+synchronized cũng có hiệu  before-happen contract
+Các cách để đồng bộ trong java
+1. synchronized methods & synchronized statements
+    > Nếu sử dụng cho static method thì nếu có 2+ hàm synchronized method thì chỉ có 1 thread được chay 1 hàm synchronized trong 1 thời điểm.
+2. synchronized statement/block
+3. synchronized static
+

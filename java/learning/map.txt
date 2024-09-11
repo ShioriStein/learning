@@ -7,7 +7,7 @@ Methods: hashCode() and equals() are the methods utilized by HashSet for making 
 Objects type: Heterogeneous and null objects can be stored with the help of HashSet. In the case of a TreeSet, runtime exception occurs while inserting heterogeneous objects or null objects.
 
 2. What are the differences between HashMap and HashTable in Java?
-HashMap	HashTable
+HashMap
 HashMap is not synchronized thereby making it better for non-threaded applications.
 Allows only one null key but any number of null in the values.
 Supports order of insertion by making use of its subclass LinkedHashMap.

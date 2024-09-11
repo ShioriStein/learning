@@ -4,7 +4,7 @@ There are 6 scopes in bean:
 - Prototype:  A new instance of the bean is created every time it is requested from the Spring container.
 - Request (Web-aware scope): single instance of the bean is created and available for an HTTP request. It is created and destroyed with the request.
 - Session (Web-aware scope): A single instance of the bean is created and available for an HTTP session. It is created once per session and is shared across all requests in that session.
-- Global-session (Web-aware scope): A single instance of the bean is created and available for the lifecycle of a ServletContext. It is shared across all requests and sessions within the web application.
+- Application (Web-aware scope): A single instance of the bean is created and available for the lifecycle of a ServletContext. It is shared across all requests and sessions within the web application.
 - WebSocket (Web-aware scope): A single instance of the bean is created and available for the lifecycle of a WebSocket connection.
 
 Các scope request, session, application, websocket chỉ hỗ trợ cho ứng dụng web. Nếu sử dụng cho các ứng dụng thông thường sẽ bị ngoại lệ IllegalStateException.
@@ -29,7 +29,9 @@ Các scope request, session, application, websocket chỉ hỗ trợ cho ứng d
 - Dependency Injection
 - Aware Interfaces (Optional)
 - BeanPostProcessor (Before Initialization)
+- @PostConstruct: Chạy sau khi khởi tạo xong bean
 - Custom Initialization Methods
 - BeanPostProcessor (After Initialization)
 - Bean is Ready to Use
+- @PreDestroy: Chạy trước khi phá hủy bean
 - Bean Destruction

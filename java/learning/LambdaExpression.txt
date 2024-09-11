@@ -1,0 +1,17 @@
+LambdaExpression là gì:
+- Có thể được định nghĩa là hàm ẩn danh
+- Hàm không có tên và không thuộc bất kỳ lớp nào, không có phạm vi truy cập, không khai báo kiểu trả về
+
+Sao lại sử dụng
+- Cung cấp implement cho Functional Interface
+- Viét ít code hơn
+- Hiệu quả hơn nhờ hỗ trợ thực tuần tự (sequential) và song song (parallel)
+
+Các thành phần: (argument-list) -> {body}
+argument-list: có thể không có hoặc nhiều tham số
+Arrow-token: được sử dụng để liên kết
+Body: chứa các biểu thước và câu lệnh cho biểu thức lambda
+
+Phạm vi truy cập:
+biến local: Chúng ta có thêr truy cập các biến final và biến chỉ được gán 1 lần.
+Chúng ta có thể truy cập và thay đổi các trường hoặc biến static.

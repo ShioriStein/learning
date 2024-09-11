@@ -2,3 +2,17 @@ Stream:
 - One of the most important of stream is Lazy Evaluation. It mean any intermediate operation doesn't execute until terminal operation.
 - Stream is not a data structure, it doesn't store any data.
 - Stream không làm thay đồi dữ liệu nguồn.
+- Stream là immutable object.
+- Các phần tử của luồng chỉ được truy cập một lần trong suốt vòng đời của stream.
+- Stream không thể sử dụng lại được lần nữa.
+- Không thể sử dụng index để truy sấp dữ liệu trong Stream.
+- Stream hỗ trợ thao tác song song các phần tử trong Colelction hay Array
+- Stream intermediate trả về một stream mới.
+
+Cách làm việc:
+1. Tạo Stream (Stream source)
+2. Thực hiện các thao tác trung gian (Intermediate operations) trên stream ban đầu để chuyển đổi nó thành một stream khác và tiếp tục
+thực hiện các hoạt động trung gian.
+3. Thực hiện thao tác đầu cuối (terminal operation) trên stream cuối cùng để nhận kết quả và sau đó bạn không thể sử dụng lại chúng.
+
+Một Stream pipeline bao gồm: 1 stream source, 0 hoặc nhiều intermediate operation, và 1 terminal operation.

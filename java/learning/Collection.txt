@@ -140,6 +140,12 @@ ListIterator
 - Chỉ 1 key có thể là null và có thể chứa nhiều giá trị null
 - duy trì thứ tự.
 
+/////////////// HASH TABLE ///////////////
+-Hashtable là một mảng của list. mỗi list được gọi là bucket (Vùng chứa) các phần tử. vị trí đc xác định bằng hashcode()
+-Hashtable không chứa unique
+- Không chấp nhận null
+- Được đồng bộ
+
 Hashmap hoạt động thế nào:
 - Mỗi cặp key - value được lưu trong đối tượng của lớp Entry<K,V>. Bên trong lớp này có 4 trường: key, value, next và hash
 
