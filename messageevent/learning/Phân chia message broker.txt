@@ -1,0 +1,14 @@
+Message broker được chia làm 2 loại:
+- Message base
+- Data Pipeline
+
+So sánh:
+Message base:
+- Lưu trạng thái của Consumer để đảm bảo tất cả đều nhận được message từ topic đang subscribe.
+- Message bị xóa sau khi các Consumer nhận được message
+- Khi có message mới, Consumer chỉ lấy được duy nhất message đó.
+
+Data Pipeline
+- Không lưu trạng thái của Consumer.
+- Message chưa bị xóa ngay sau khi Consumer nhận được message.
+- Consumer có thể tùy ý lựa chon lấy về một danh sách các message , bao gồm cả message cũ.

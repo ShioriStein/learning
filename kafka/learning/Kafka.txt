@@ -1,0 +1,163 @@
+1. Kafka là event streaming platform.
+2. Khi một consumer group mới subscribe vào topic thì offset của nó sẽ được chỉnh dựa trên config để xem init thế nào.
+3. ISR (In-sync Replicas):
+    - ISR là các replicate partion mà đang đongò bộ với leader của nó. Nghĩa là follower partition đồng bộ hoặc có chung messages.
+    - In- khi follower , theo default, bắt kịp với leader của nó trong thời gian 10s qua.
+    - min.insync.replicas là số lượng replica tối thiểu (bao gồm leader) mà phải in-sync để message đó được công nhận là thành công nếu sử dụng ack="-1" (hoặc ack="all")
+4. - Queue khi 1 topic -> 1 consumer group
+   - Topic khi 1 topic -> n consumer group.
+#### TOPIC
+1. Topic stream of data, luồng lưu dữ liệu của Kafka. Nó là một dãy các message nối tiếp nhau (array of byte).
+2. Có thể coi topic giống như table trong CSDL:
+    - Table -> topic
+    - Row/Record -> message
+3. Topic được lưu ở log file và phân chia thành các segment khác nhau.
+
+### PARTITION
+1. 1 Topic được chia thánh nhiều partition và message được lưu trên đó,
+    - Partition có thứ tự và bắt đầu từ 0
+    - Các message đc lưu trong partition cũng đc order thứ tự từ cũ đến mới và append liên tục từ giá trị 0, được gọi là offset.
+    - Offset chỉ có giá trị trên partition đó.
+    - Mỗi Consumger Group sẽ được lưu 1 giá trị offset internal trên partition mà nó đang subscribe.
+    - Message lưu trên Kafka sẽ không bị xóa ngày mà default giữ lại trong 7 ngày. Nếu trong 7 ngày nó không đc consume thì sẽ bị xóa nhưng offset không thay đổi
+    - Data lưu vào partition là immutable, không thể thay đổi hay update, không thể swap sang offset khác
+2. Replication
+- Một parition có thể có nhiểu replica và chúng sẽ được phân phối tới các broker trong cụm
+- Áp dụng mô hình Leader - Follower: 1 partition sẽ làm leader và còn lại là follower.
+
+2. Leader - Follower
+- Nếu leader ngủm thì follower sẽ bầu 1 follower khác lên làm leader.
+- Chỉ có thể read-write message từ leader.
+- Các replication còn lại được gọi là ISR, đồng bộ message từ replication leader.
+- Mỗi partition có duy nhất 1 replication leader và 1 hoặc nhiều ISR.
+- Zookeper là người quyết định replication nào là Leader hoặc ISR.
+3. Khi có nhiều partition thì Kafka sẽ phân phối các partition tới đồng đều các broker đang có.
+
+
+### PRODUCER
+1. Producer là gì:
+- Producer là người bắn message tới Message Broker - cụ thể là với Kafka, producer viết vào partition của topic.
+- Producer biết gửi message tới broker nào và partition nào. Trong trường hợp đang gửi mà gặp sự cố producer có cơ chế retry tới khi thành công.
+- Nếu không chỉ định producer sẽ gửi theo cơ chế round-robin.
+- Để biết được message bắn thành công, producer có thể nhận acks từ Kafka.
+
+2. Ack Mode: gồm 3 mode
+    - acks=0: Producer bắn message và không quan tâm hay chờ gì từ broker.
+    - acks=1: Producer bắn message và chờ nhận acknowledgement từ leader một khi message đã được write thành công.
+    - acks=all(-1): Producer bắn message và chờ acknowledgement từ replication leader và tất cả các ISR (In-Sync Replicas) hoàn tất.
+
+use case:
+    - mode 0: nhanh nhưng dễ mất dữ liệu -> Thu thập thông tin đo lường hoặc log.
+    - mode 1: cân bằng giữa nhanh và bền, phù hợp cho hoạt động như thu thập thông tin người dùng.
+    - mode all: Tính bền bỉ của dữ liệu là số 1, phù hợp cho ứng dụng trọng yếu khi dữ liệu không được phép mất -> như giao dịch tài chính hoặc xử lí hóa đơn.
+
+3. Key
+- Để đảm bảo message tới chính xác partition mình muốn thì chúng ta có thế sử dụng key
+- Key có thể là bất kì loại dữ liệu gì (tất cả giá trị lưu trong kafka là byte array anyway).
+- Kafka sẽ hash key để biết được partition tương ứng với key.
+- key = null -> Kafka sẽ gửi message theo cơ chế round-robin tới partition.
+- Key != null -> message có cùng key đi vào chung partition.
+
+4 Idempotent Producer:
+- Để  đảm bảo không dup, mỗi producer sẽ được gán 1 Producer Id độc nhất. Mỗi lần Producer gửi message tới Broker nó sẽ gửi kèm PID này. Mỗi message này cũng sẽ cố số sequence tăng dần riêng.
+- Số sequence riêng này sẽ được duy trì cho mỗi topic mà producer bắn message tới.
+- Broker sẽ theo dõi cặp PID-Sequence mà nó thành công ghi xuống cho mỗi partition. Nếu message tiếp theo không lớn hơn cặp này thì broker sẽ gửi tín hiệu ack mà không ghi thêm vô.
+- LƯU Ý: Cách này chỉ có tác dụng đối với 1 producer sessioon.
+
+5.  - Default lưu lượng của message là 1MB.
+    - Batch size là 16KB
+
+6. Transaction
+- Mỗi producer sẽ có transaction_id uniue, nếu trùng thì sẽ chỉ có 1 cái chạy
+- Transaction như DB, chúng ta cần gửi message tới nhiều topic khác nhau và mong muốn tất cả đều tới đích thành công - không thì không có cái nào gửi thành công.
+- 2 điều kiện khi tạo topic support transaction:
+Replication factor >= 3
+min.insync.replicas >= 2
+
+- Các hàm cán biết:
+InitTransactions() - Check để đảm bảo bất kì transaction tạo trước đó đã được close.
+beginTransaction()
+commitTransaction() - sẽ flush toàn bộ các message chưa được gửi đi trước khi commit transaction.
+
+7. Batch
+- Khi mà Producer gửi tới cùng 1 partition Kafka sẽ nhét chúng vô chung 1 batch
+- Batch size: Lượng tối đa mà producer sẽ chứa các message trước khi gửi 1 lần tới Kafka
+8. Buffer
+- Message chờ được gửi tới broker.
+
+### BROKER
+1. Broker là gi
+- Là 1 server nơi lưu trữ các topic.
+- Nhiều Broker gộp lại thành 1 Kafka Cluster
+- Mỗi broker được định danh bằng ID, là số nguyên.
+- Mỗi broker lưu trữ một vài partition, không lưu tất cả partition của topic.
+2. Chỉ cần connect tới bất kỳ broker nào trong cluster chúng ta sẽ có thể kết nối được tới toàn mạng.
+
+
+
+
+### CONSUMER
+0. Consumer là gì
+- Consumer đọc message từ topic.
+- Consumer nếu đang đọc lăn ra chết thì nó cơ chế để retry
+- Consumer đọc tuần tự dựa trên offset (1 -> 2 -> 3) của partition.
+- Một consumer có thể đọc message từ 1 hoặc nhiều partition trong 1 topic.
+
+1. Consumer group:
+- Tập hợp các consumer trong 1 cụm.
+- Khi Kafka gửi message nó sẽ gửi tới tất cả consumer group subscribe topic đó, bên trong đó consumer group sẽ auto-balance message tới từng consumer con.
+- Consumer Group sẽ đọc toàn bộ data của partition và chia vào các consumer bên trong để xử lý
+- Một consumer có thể nhận message từ nhiểu partition nhưng 1 partition chỉ có thể gửi cho 1 consumer trong cùng 1 consumer group.
+- Nếu consumer > partition thì số consumer dư sẽ ở trạng thái inactive.
+
+2. Idempotent Consumer:
+- Có 3 cách để tiếp cận vấn đề:
+    + Set EnableAutoCommit = false -> At-least-once
+    + EnableAutoCommit = true -> Exactly-Once hoặc At-Least-Once
+    + EnableAutoCommit = false
+
+3. Consumer Group Coordinator and a Consumer Group Leader?
+- Consumer group coordinator là 1 trong những broker
+    = Quản lí các consumer trong 1 group, khi consumer kết nối và tham gia group thì nó gửi request tới coordinator.
+- Consumger group leader là 1 consumer trong Consumer Group.
+    = Consumer group leader để quản lí việc rebalance. (list member, gán partition)
+
+4. Consumer offset
+- Để biết được consumer group đọc tới offset nào trong topic partition thì nó phải lưu lại consumer offset.
+- Mỗi consumer group có consumer offset khác nhau.
+
+5. Khi consumer message sẽ dẫn tới 3 tình huống.
+- At most once
+Commit ngay khi nhận được message.
+Nếu đang xử lí mà consumer chết thì mất message.
+
+- At least once
+Commit offset sau khi xử lí xong message.
+Nếu đang xử lí mà chết thì consumer sau khi wake up sẽ consume và xử lí lại message đó.
+=> Message có thể sẽ tới nhiều hơn 1 lần nên cần xử lí idempotent.
+
+- Exactly once
+Dạng đặc biệt, nó không áp dụng cho các consumer group dạng BackEnd App như Java, C#.
+=> Có thể biến at-least-once thành Exactly-once với idempotent.
+
+6. Kafka broker discovery
+-Consumer chỉ cần connect tới 1 broker bất kì có thể connect tới toàn bộ kafka cluster.
+- Mỗi broker đều có thông tin về các broker, topic và partition của Kafka cluster, được goi là metadata. Zookeeper là nơi lưu trữ metadata.
+- Cách hoạt động:
+Consumer -> Broker 1;
+Broker 1 - metadata -> Consumer;
+Consummer -> Broker 2;
+
+
+### Zookeeper
+1. Zookeeper là gì
+- Là thứ lưu trữ các thông tin của Kafka broker, topic, partition ... hay còn gọi là quản lí chung.
+- Thực hiện leader election cho các partition.
+- Gửi thông tin đến Kafka về các event phát sinh trong hệ thống: new topic, delete topic, partition die, broker die, broker come up ...
+- Zookeeper cũng tuân thủ theo mô hình leader-follower.
+
+### Security
+Bao gồm 3 component
+- Mã hóa data trên đường đi bằng SSL / TLS
+- Authentication bằng SSL hoặc SASL
+- Authorization bằng ACLs.
