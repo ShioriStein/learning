@@ -3,6 +3,7 @@ package com.demo.grpcclient.controller;
 import com.demo.grpc.stubs.HelloWorldRequest;
 import com.demo.grpc.stubs.HelloWorldResponse;
 import com.demo.grpc.stubs.HelloWorldServiceGrpc;
+import com.demo.grpcclient.dto.ReturnResponse;
 import com.demo.grpcclient.service.HelloWorldClient;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
@@ -19,7 +20,7 @@ public class HelloWorldController {
     private HelloWorldClient helloWorldClient;
 
     @GetMapping
-    public HelloWorldResponse sayHelloWorld(String name, String age) {
+    public ReturnResponse sayHelloWorld(String name, String age) {
 //        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 9999).usePlaintext().build();
 //
 //        //Create stub
@@ -30,7 +31,9 @@ public class HelloWorldController {
 ////        channel.shutdown();
 //
 //        return helloWorldResponse;
+        ReturnResponse returnResponse = new ReturnResponse();
+        returnResponse.setGreeting(helloWorldClient.doHello(name, age).getGreeting());
 
-        return helloWorldClient.doHello(name, age);
+        return returnResponse;
     }
 }

@@ -6,6 +6,7 @@ option java_multiple_files = true;
 message HelloWorldRequest {
   // a name to greet, default is "World"
   string name = 1;
+  int32 age = 2;
 }
 
 message HelloWorldResponse {

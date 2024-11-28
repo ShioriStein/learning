@@ -84,6 +84,7 @@ commitTransaction() - sẽ flush toàn bộ các message chưa được gửi đ
 - Batch size: Lượng tối đa mà producer sẽ chứa các message trước khi gửi 1 lần tới Kafka
 8. Buffer
 - Message chờ được gửi tới broker.
+9.Producer partition strategies
 
 ### BROKER
 1. Broker là gi
@@ -147,6 +148,8 @@ Dạng đặc biệt, nó không áp dụng cho các consumer group dạng BackE
 Consumer -> Broker 1;
 Broker 1 - metadata -> Consumer;
 Consummer -> Broker 2;
+
+7.Consumer assignment strategies
 
 
 ### Zookeeper

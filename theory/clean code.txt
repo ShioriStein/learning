@@ -1,0 +1,22 @@
+######### Naming:
+- Class:
++ Nên là danh từ: Calculator, Employee, Invoice,...
++ Nên chi tiết:
+VD: CommonUtil -> AUtil, BFeatureUtil
+- Variable:
+    + Rule:
+        > Không bao giờ là 1 kí tự duy nhất
+        > Nên chi tiết
+        > Nên chứa 1-2 từ
+        > Boolean thì nên bắt đầu với từ  "is"
+        > Viết hoa tất cả chữ với tách từ bằng gạch dưới cho constant
+    +Ví dụ:
+        > BAD: * List<String> a = new ArrayList<>();
+               * List<String> data = new ArrayList<>();
+        > GOOD: List<String> personalDetails = new ArrayList<>();
+- Method:
+    + Rules:
+        > Nên là động từ
+        > Biểu thị ý đồ
+        > Nhìn tên là biết làm gì. Nếu phải mở code xem thì nên đặt tên lại.
+

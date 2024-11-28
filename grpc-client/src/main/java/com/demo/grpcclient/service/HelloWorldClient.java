@@ -7,6 +7,9 @@ import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+
+import java.util.Optional;
 
 @Service
 public class HelloWorldClient {
@@ -18,7 +21,16 @@ public class HelloWorldClient {
         //Create stub
         HelloWorldServiceGrpc.HelloWorldServiceBlockingStub stub = HelloWorldServiceGrpc.newBlockingStub(channel);
 
-        HelloWorldResponse helloWorldResponse = stub.sayHello(HelloWorldRequest.newBuilder().setName(name).build());
+        //Create reuest
+
+        HelloWorldRequest.Builder requestBuilder = HelloWorldRequest.newBuilder();
+        Optional.ofNullable(name).ifPresent(requestBuilder::setName);
+        requestBuilder.setAge(Integer.parseInt(age));
+//        if(StringUtils.hasText(age)) {
+//            requestBuilder.setAge(Integer.parseInt(age));
+//        }
+
+        HelloWorldResponse helloWorldResponse = stub.sayHello(requestBuilder.build());
 
         channel.shutdown();
 
