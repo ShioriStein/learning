@@ -1,0 +1,12 @@
+-Các yêu cầu để áp dụng dynamic programing: Overlapping problem và Optimized Substructure
+- Overlapping subproblems:
++ Memoization
++ Để sử dụng dynamic programing thì các sub problem phải tương tự, merge sort các operation của nó là unique nên mặc dù có nhiều subproblems
+nhưng không phù hợp để áp dụng dynamic programing
+- Optimized Substructure:Nếu solution optimize cho sub problems thì khi ghép lại nó là optimized solution nhất cho tổng thể problenm
+
+vd: Fibonacci
+Without Memoization -> 2^n
+with Memoization  -> O(2n - 1) --> O(n)
+
+- Khi giải quyết vấn đề có thể tiếp cận theo 2 hướng: top-down hoặc bottom-up

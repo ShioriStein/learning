@@ -1,0 +1,8 @@
+- Tree có thể là bất kì thứ gì không chỉ binary
+- Cây gọi là Full khi - Node của chúng trỏ tới 0 hoặc 2 node
+- Cây gọi là perfect khi nó đối xứng
+- Cây gọi là complete khi nó đc fill từ trái sang phải
+
+- Cơ chế của binary -> Các giá trị lớn hơn node so sanh đi qua phải, giá trị nhỏ hơn hoặc bằng đi qua trái
+- Binary search O(logn), remove O(logn)
+- Tìm kiếm và remove dựa trên giá trị thì nên sử dụng binary tree

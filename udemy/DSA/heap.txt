@@ -1,0 +1,28 @@
+- Heap có thể xem là binary tree
+- Các giá trị con của 1 node luôn nhỏ hơn nó
+- Khác biệt với binary tree là Heap có thể có giá trị trùng (dup)
+- Heap có 2 loại: Max Heap và Min Heap
+- Chúng ta có thể sử dụng ArrayList
+VD: [null,99,72,61,58,55,27,18]
+99 -> 61
+|
+v
+72
+
+72->55
+|
+v
+58
+
+61 -> 18
+|
+v
+27
+
++ Cách tìm child: leftChild = parentIndex * 2, rightChild = parentIndex * 2 + 1
++ Cách tìm parent: paren = childIndex / 2 (làm tròn xuống)
+
+- Priority queue thường hay sử dụng heap tree để implement
+- PQ có thể implement bằng bất kì DS nào nhưng yếu tố để quyết định chính là BigO của từng loại DS;
+- Heap tree có height là logN
+- Nếu thêm 1 item hoặc remove thì BigO luôn là logN

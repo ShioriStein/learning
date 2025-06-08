@@ -1,0 +1,6 @@
+- Để xóa 1 node khỏi BST thì chỉ cần tìm giá trị nhỏ nhất của nhánh bên phải của node đó -> copy vô node cần xóa và sau đó xóa node lá đi
+- KHi xóa node thì sẽ có 3 TH:
+1. Là node lá;
+2. Chỉ có lá 1 trong 2 bên
+3. chỉ có lá 2 bên
+4. Có subtree bên phải

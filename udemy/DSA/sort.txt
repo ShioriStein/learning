@@ -1,0 +1,14 @@
+- Bubble sort: loop line tục để đưa từng phần từ lớn nhất về cuối array
+- Selection sort:
+- Insertion Sort:
++ Chỉ duy nhất sort này là O(n) nếu bắt đầu với dữ liệu đã đc sort
+- Merge Sort: Chia nhỏ list ra nhỏ nhất có thể thành list với 1 phần tử => list này đa sort r. Sau đó ghép lại từ từ thành một list sort hoàn chỉnh
++ merge sort tao ra 1 arr khac
++ Big O la (n Ologn)
++ MErge sort là tốt nhất để thao tác với nhiều kiểu dữ liệu khác
+- Quick sort: -> chọn 1 điểm bắt đầu và bắt đầu sort với các giá trị lớn hơn hoặc nhỏ hơn điểm đó.
++ Sau khi sort thì chúng ta sẽ có một bên của điểm là những giá trị nhỏ hơn hoặc lớn hơn điểm đó và điểm pivot đó đã được sort
++ Sau đó chúng ta sẽ lặp lại với các phần còn lại, điểm đầu đến pivot - 1, pivot + 1 đến cuối của bên phải
++ Big O :
+-> Nếu chưa sort thì sẽ là O(nLogn)
+-> Nếu sort rồi thì sẽ là O(n2) -> nên sử dụng sort khác như insertion sort

@@ -1,0 +1,5 @@
+- Collision:
+  -> Linear Probing: index+n cho tới khi có slot
+  -> Linked Líst: Thêm node vào linked list
+- insert và tìm key là O(1)
+- Tìm kiếm theo giá trị thì không phải là O(1)

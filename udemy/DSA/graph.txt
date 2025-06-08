@@ -1,0 +1,7 @@
+- Dồ thì là một cấu trúc dữ liệu mà mỗi node có thể đi được dến nhau:
+- Mỗi đường đi có thể có weight hoặc không có
+- Mỗi cạnh cũng có thể đi 1 chiều hoặc 2 chiều
+- Tree cũng là một dạng Graph
+- Ma trận kề: Bảng ma trận các cạnh của một đồ thị
+- đồ thị: List kề chưa các vertex mà node có thể đi tới
+- Big(O):

@@ -1,0 +1,5 @@
+- Chỉ có thể lấy item cuối cùng đc add vào stack
+- Tùy vaò sử dụng LL hoặc ArrayList chúng ta có thể quyết định cách lưu để BigO nhỏ nhất
+  - Nếu arraylist thêm vào cuối thì sẽ O(1) nhưng nếu thêm vào ngay đầu thì sẽ là O(n) do phải re-index arrayList
+- Với Queue nếu sử dụng ArrayList thì sẽ luôn có đầu O(n) và O(1)
+- Queue sử udngj LL thì sẽ có thể implement queue O(1) cả 2 đầu

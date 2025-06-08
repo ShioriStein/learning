@@ -1,0 +1,12 @@
+- BigO là công cụ để đo lường xem nên sử dụng DS nào cho phù hợp -> rất quan trọng.
+- Timecom complexity và Space Complexity
+- BigO luôn luôn là worst case.
+- Drop constant, nếu có 2 loop thì thay vì 2n người ta sẽ đơn giản hóa drop 2 đi và chỉ còn O(n)
+- On2
+- Drop non domain để đơn giản BigO: O(n2 + n) => O(n2)
+- O(1) -> constant O
+- O(log n)->  Số operation để chạy khi chia cho 2
+vd: aray 8 / 2 -> cần 3 lần để ra đc 1 item , log'2' 8 -> 3
+- nếu input a và b thì O sẽ là O(a + b) tùy vào loop thay vì là O(n)
+- BigO arrayList
+->

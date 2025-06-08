@@ -1,0 +1,6 @@
+-Duyệt cây có 2 loại:
+1- Breath First Search -> Duyệt từng node từ trên xuống
+2- Depth First Search -> Duyet node ben trai roi tới bên phải, nếu không có node nào thì in giá trị của node đó ra
+2.1 PreOrder -> Duyệt node từ root tới bên trái cùng rồi sau đó qua phải
+2.2 PostOrder -> Duyet node ben trai roi tới bên phải, nếu không có node nào thì in giá trị của node đó ra
+2.3 In Order -> Duyệt node bên trái cùng, không còn giá trị trái thì in ra, sau đo qua node phải.
