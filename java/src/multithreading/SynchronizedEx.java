@@ -1,5 +1,7 @@
 package multithreading;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 class ShareMemory {
     public synchronized void printDate(String threadName) {
         for (int i = 0; i <= 5; i++) {
@@ -36,6 +38,7 @@ class WorkingThread extends Thread {
 
 public class SynchronizedEx {
     public static void main(String[] args) {
+        AtomicInteger
         ShareMemory shareMemory = new ShareMemory();
         WorkingThread wt1 = new WorkingThread(shareMemory, new String("Thread 1"));
         WorkingThread wt2 = new WorkingThread(shareMemory, new String("Thread 2"));

@@ -1,0 +1,2 @@
+RESTful API -> tuân thủ các nguyên tắc của kiến trúc REST
+Rest API -> viết ngắn gọn cho REST

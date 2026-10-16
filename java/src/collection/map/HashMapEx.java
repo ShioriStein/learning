@@ -1,5 +1,7 @@
 package collection.map;
 
+import scala.collection.mutable.HashTable;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,6 +19,7 @@ public class HashMapEx {
         m1.remove("Daisy");
         System.out.println(" Map Elements");
         System.out.print("\t" + m1);
+        var a = new HashTable<String, String>();
 
         for (String key : m1.keySet()) {
             System.out.println("\t" + key + " = " + m1.get(key));
